@@ -14,11 +14,11 @@ import torch
 import transformers
 from transformers import AutoTokenizer
 
-from selfconcept.common.jsonl import append_jsonl, read_jsonl
-from selfconcept.common.loading import load_causal_lm
-from selfconcept.measurement.capture import capture
-from selfconcept.measurement.templates import response_spans
-from selfconcept.soo.activations import get_decoder_layers
+from axis_rh.common.jsonl import append_jsonl, read_jsonl
+from axis_rh.common.loading import load_causal_lm
+from axis_rh.measurement.capture import capture
+from axis_rh.measurement.templates import response_spans
+from axis_rh.soo.activations import get_decoder_layers
 from .generate import check_context_budget
 from .transcripts import tokenize_transcript, transcript_token_indices_by_region
 

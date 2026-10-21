@@ -1,0 +1,12 @@
+{
+  "repo_id": "Arkonyx/assistant-axis-reward-hacking",
+  "repo_type": "dataset",
+  "url": "https://huggingface.co/datasets/Arkonyx/assistant-axis-reward-hacking",
+  "revision": "3bd85dd4126fef62dd8607c18805805588d4d5d4",
+  "filename": "assistant-axis-observations.tar.gz",
+  "sha256": "b3df15d8331ec73410c7e92116fe1c3fe2a500748e24a2853b5bd77d3da13129",
+  "bytes": 26774644,
+  "observations": 824,
+  "license": "MIT",
+  "transformation": "Generated code and unused metadata removed; scoring inputs unchanged."
+}

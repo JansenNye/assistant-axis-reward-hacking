@@ -1,8 +1,8 @@
 """Teacher-forced transcript tokenization and exact region alignment."""
 from __future__ import annotations
 from typing import Literal, NamedTuple
-from selfconcept.common.hf_strong_types import configure_apply_chat_template, configure_call, Conversation, HFTokenizer, OffsetMappingPresent
-from selfconcept.measurement.templates import ResponseSpans
+from axis_rh.common.hf_strong_types import configure_apply_chat_template, configure_call, Conversation, HFTokenizer, OffsetMappingPresent
+from axis_rh.measurement.templates import ResponseSpans
 from .generate import last_message_token_indices, response_token_indices_by_region
 from .records import Region, TranscriptRecord
 Alignment = Literal["exact", "unavailable"]

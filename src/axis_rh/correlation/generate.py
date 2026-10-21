@@ -1,8 +1,8 @@
 """Token alignment helpers extracted unchanged from the experiment runner."""
 from __future__ import annotations
 from itertools import accumulate
-from selfconcept.common.hf_strong_types import configure_call, Conversation, HFTokenizer, OffsetMappingPresent
-from selfconcept.measurement.templates import content_token_indices, ResponseSpans
+from axis_rh.common.hf_strong_types import configure_call, Conversation, HFTokenizer, OffsetMappingPresent
+from axis_rh.measurement.templates import content_token_indices, ResponseSpans
 from .records import Region
 
 def generated_token_offsets(tokenizer: HFTokenizer, token_ids: list[int], text: str) -> OffsetMappingPresent | None:

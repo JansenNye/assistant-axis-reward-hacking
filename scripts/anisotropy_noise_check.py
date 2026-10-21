@@ -6,10 +6,10 @@ import json
 from pathlib import Path
 import numpy as np
 from scipy.stats import norm, pearsonr
-from selfconcept.assistant_axis.projection import load_unit_axes
-from selfconcept.correlation.analyze import binary_outcome
-from selfconcept.correlation.random_vector_analysis import group_indices, load_cache, pair_totals, project
-from selfconcept.correlation.random_vectors import random_directions, REGIONS
+from axis_rh.assistant_axis.projection import load_unit_axes
+from axis_rh.correlation.analyze import binary_outcome
+from axis_rh.correlation.random_vector_analysis import group_indices, load_cache, pair_totals, project
+from axis_rh.correlation.random_vectors import random_directions, REGIONS
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("directories", type=Path, nargs="+", help="All cache shard directories")

@@ -4,7 +4,7 @@
 
 Supply a PyTorch tensor of shape `(36, 2880)` for GPT-OSS-120B, or a mapping containing
 that tensor under `axis` and the model identifier under `model`.
-`selfconcept.measurement.unit_axes.load_unit_axes` validates dimensions and normalizes
+`axis_rh.measurement.unit_axes.load_unit_axes` validates dimensions and normalizes
 each selected layer. The legacy tensor used in the study lacks embedded model metadata;
 its shape alone cannot authenticate its provenance. Load only trusted `.pt` files.
 The extraction and reward-hacking dataset are credited to Koby Lewis.
@@ -39,7 +39,7 @@ The example illustrates the schema, not an observation from the study. Preserve 
 full original conversation, exact template settings, and channel markers in real input.
 Use `verdict: "unflagged"` for the comparison observations. A stratum must include
 the same problem, protocol, run family and turn. Do not collapse it to only the problem ID.
-`python -m selfconcept.correlation.rh_hillclimb --help` describes the original
+`python -m axis_rh.correlation.rh_hillclimb --help` describes the original
 run-directory importer and its strict matching mode. It requires the original experiment
 data, worklists, reasoning sidecars and verdict files; these are not public inputs here.
 
@@ -60,10 +60,47 @@ The analyzer rejects missing/duplicate shards, incompatible identities, and cach
 made with a smoke-test limit. Exact token alignment excludes control markers and the
 last unprocessed response token, matching the original scoring convention.
 
-## What this release distributes
+## Public observation bundle
 
-SOO's synthetic prompts live in the companion repository. This repository distributes
-only aggregate statistics from the coding study, plus code. Original transcripts,
-per-observation activations, the axis tensor, and model checkpoints are separate inputs.
-The local preparation environment keeps a copy of the activation cache under ignored
-`artifacts/` for validation; that directory is not part of Git history or the public release.
+The [MIT-licensed bundle on Hugging Face](https://huggingface.co/datasets/Arkonyx/assistant-axis-reward-hacking)
+contains all 824 observations, six cache shards, and the axis tensor (about 27 MB compressed).
+Generated source code is removed from outcome metadata; activations, verdicts, matching
+strata and lengths are preserved. No full coding transcripts or base-model checkpoints
+are distributed. SOO prompts and responses live in the companion repository.
+
+```bash
+hf download Arkonyx/assistant-axis-reward-hacking --repo-type dataset \
+  --revision 3bd85dd4126fef62dd8607c18805805588d4d5d4 \
+  assistant-axis-observations.tar.gz SHA256SUMS \
+  --local-dir outputs/observation-download
+(cd outputs/observation-download && sha256sum -c SHA256SUMS)
+tar -xzf outputs/observation-download/assistant-axis-observations.tar.gz
+```
+
+Run the download commands from the repository root. All archive members live under
+`artifacts/`, so extraction does not overwrite the repository README. The artifact's
+immutable revision and SHA-256 are recorded in `published/observation-artifact.json`;
+`artifacts/OBSERVATION_MANIFEST.json` lists input-file hashes relative to the repository
+root. The original transcript hash identifies the inputs used during extraction,
+not the reduced metadata file.
+
+The bundle reproduces the fixed-cohort statistics, including the 256/2,000 random-direction
+controls, held-out baseline, and noise experiment. It does not permit independent auditing
+of the original hacking judgments or fresh activation extraction from conversations;
+those require the underlying transcripts. Unflagged observations are not judge-confirmed
+non-hacks. The tensor shape alone cannot establish the axis's construction provenance;
+the pinned download and checksums identify the actual released study artifact.
+
+## Rebuild a minimal bundle from source caches
+
+The local exporter removes generated code and unused outcome fields, requires explicit
+verdicts so removing code cannot change labels, and preserves scoring inputs:
+
+```bash
+python scripts/prepare_observations.py artifacts/cache/shard_* \
+  --axis artifacts/assistant_axis.pt --out outputs/observation-bundle
+```
+
+The public bundle's inputs match this export byte for byte. This command prepares local
+files and performs no upload. Repository code and the observation bundle use MIT, with
+Koby Lewis and the shared research contributors credited in the notices and dataset card.

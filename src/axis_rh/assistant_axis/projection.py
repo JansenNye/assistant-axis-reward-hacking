@@ -1,8 +1,8 @@
 """Load the layer-by-hidden tensors produced by the assistant-axis pipeline."""
 from pathlib import Path
 
-from selfconcept.measurement.interface import Measurement
-from selfconcept.measurement.unit_axes import load_unit_axes, unit_axis_scorer
+from axis_rh.measurement.interface import Measurement
+from axis_rh.measurement.unit_axes import load_unit_axes, unit_axis_scorer
 
 
 def build_axis_measurement(path: Path, layers: list[int], num_layers: int, hidden_size: int,

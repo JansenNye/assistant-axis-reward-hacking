@@ -1,175 +1,175 @@
 {
   "files": [
     {
-      "path": "src/selfconcept/correlation/__init__.py",
+      "path": "src/axis_rh/correlation/__init__.py",
       "source_sha256": "23c4a419d3fa66269de22662f6b99bc8431f5ef249c4b6f8e3b1e409a271c4ca",
       "release_sha256": "23c4a419d3fa66269de22662f6b99bc8431f5ef249c4b6f8e3b1e409a271c4ca",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/correlation/random_vectors.py",
+      "path": "src/axis_rh/correlation/random_vectors.py",
       "source_sha256": "4c47ae7008e72296b1af5b92798127d2e1a235f1be3f3577ad998bf74a6a07ee",
-      "release_sha256": "e37c43d1b8c15798e155da49988f3ed5869220b119c9f5ea6a5581b0eb746c5f",
+      "release_sha256": "48196c8e9c12c8b26427e9f28b16d68e1b529303525aa4c36225a3c5b4e9a2ab",
       "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/correlation/random_vector_analysis.py",
+      "path": "src/axis_rh/correlation/random_vector_analysis.py",
       "source_sha256": "9e1475ecd5702f6373148d89ceab3c1abba13dd06fa4eaf8c42b03500309ae6c",
-      "release_sha256": "9e1475ecd5702f6373148d89ceab3c1abba13dd06fa4eaf8c42b03500309ae6c",
-      "modified_for_release": false
-    },
-    {
-      "path": "src/selfconcept/correlation/direction_analysis.py",
-      "source_sha256": "6d42019d50bcd82f586921e859b5b82ba412006185ffc2523a954a3d25318a82",
-      "release_sha256": "3d66fc518b70c5e71fcbdc0788733fa2c065d0dafd83791dfb36630f26922b43",
+      "release_sha256": "1078e6659b453d9294e74ddfba91ee8caa38bfecb16da473233610b4b95bab79",
       "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/correlation/records.py",
+      "path": "src/axis_rh/correlation/direction_analysis.py",
+      "source_sha256": "6d42019d50bcd82f586921e859b5b82ba412006185ffc2523a954a3d25318a82",
+      "release_sha256": "756f83efacdfda1caa0152c8d69aa943caf1e0c3d633d994d412a1c55f550806",
+      "modified_for_release": true
+    },
+    {
+      "path": "src/axis_rh/correlation/records.py",
       "source_sha256": "24a5c93e4cd50e5b53ee0d967a8e2001ecee001670226855724fb490aa7b9298",
-      "release_sha256": "24a5c93e4cd50e5b53ee0d967a8e2001ecee001670226855724fb490aa7b9298",
-      "modified_for_release": false
+      "release_sha256": "aa827283c917dfb064a66fa25529894803b0f536c1eb45a20bfe4ff2807d2d6e",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/correlation/rh_hillclimb.py",
+      "path": "src/axis_rh/correlation/rh_hillclimb.py",
       "source_sha256": "cbd04684ac54e186345570203832e282eb51fcb2d3d10ee29453d4a0cf2c69ca",
-      "release_sha256": "cbd04684ac54e186345570203832e282eb51fcb2d3d10ee29453d4a0cf2c69ca",
-      "modified_for_release": false
+      "release_sha256": "690f3ebaa693cb86a2a290b0c171e77394e04b67042f039e3870b4937bfabad5",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/common/chat.py",
+      "path": "src/axis_rh/common/chat.py",
       "source_sha256": "947be50fa62de8093951b87d20940dd96adf111e5dcd022a62702591f2adc57d",
-      "release_sha256": "947be50fa62de8093951b87d20940dd96adf111e5dcd022a62702591f2adc57d",
-      "modified_for_release": false
+      "release_sha256": "29c3989a23ab75bf9094589a58009cba85ed1f7e1cb222a6818085f13485d7f5",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/common/loading.py",
+      "path": "src/axis_rh/common/loading.py",
       "source_sha256": "8279a835874b2b1d594cad4e7b7bc10cd9f8d8b5127d3675edce3d88e7ffe21b",
       "release_sha256": "c36bdaeda53d814dbe534837e7f57f2aec6248734c7597d7db46d2344e40ed23",
       "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/common/jsonl.py",
+      "path": "src/axis_rh/common/jsonl.py",
       "source_sha256": "122d599688c34e007b90b577f9539a040aa7373afe88d41d58847197ada716d7",
       "release_sha256": "122d599688c34e007b90b577f9539a040aa7373afe88d41d58847197ada716d7",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/common/harmony.py",
+      "path": "src/axis_rh/common/harmony.py",
       "source_sha256": "a8de1168e0ad311785d370e5e5f728cb3471cef24bd574a51d63794fd81242a4",
       "release_sha256": "a8de1168e0ad311785d370e5e5f728cb3471cef24bd574a51d63794fd81242a4",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/common/hf_strong_types.py",
+      "path": "src/axis_rh/common/hf_strong_types.py",
       "source_sha256": "a34f82f087bcdf444baa55042f94a6a4caee41dade92c50c9484a66a00e31357",
-      "release_sha256": "f10eaf1cd8ed961b79bfe8aba07421f50fa1d2cab4cff1ea9b912d718146a938",
+      "release_sha256": "772d86ab5708e43c1f9af76cc38830fdcfe5a50317dc55fad7afe58bdd7d00c2",
       "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/common/paths.py",
+      "path": "src/axis_rh/common/paths.py",
       "source_sha256": "9dc73f02aa4bc6684b0ff37648ebc60ca9043994eca8cec3ab250171570a5bd4",
       "release_sha256": "4a741be971e3d2d8c61b6e4f4f0be4cbcd0eae89c1dbd8ee250ec87c438064f1",
       "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/measurement/__init__.py",
+      "path": "src/axis_rh/measurement/__init__.py",
       "source_sha256": "2d1f879d377e5a82cdba30155ea843cb92f5a0e774e740b684e53caa9404110a",
       "release_sha256": "2d1f879d377e5a82cdba30155ea843cb92f5a0e774e740b684e53caa9404110a",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/measurement/capture.py",
+      "path": "src/axis_rh/measurement/capture.py",
       "source_sha256": "9522637702e38046cd12dc01f8b09af3d4ceaeb68d698df7de2796a594bc6e40",
-      "release_sha256": "9522637702e38046cd12dc01f8b09af3d4ceaeb68d698df7de2796a594bc6e40",
-      "modified_for_release": false
+      "release_sha256": "e2147f93ea4565845147809ed2cf95cccfeac2d94e97f021c1637b048b9f9551",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/measurement/interface.py",
+      "path": "src/axis_rh/measurement/interface.py",
       "source_sha256": "4f3340417d6d0c3a2f908cda7b2f4c72e8e3159e663d55f86a8bd59d43368941",
       "release_sha256": "4f3340417d6d0c3a2f908cda7b2f4c72e8e3159e663d55f86a8bd59d43368941",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/measurement/templates.py",
+      "path": "src/axis_rh/measurement/templates.py",
       "source_sha256": "4b5b14ac2ec9dd9ad8e2863b9070f6db5d210d19dde3b5f7c348e4b51c40c0a0",
-      "release_sha256": "4b5b14ac2ec9dd9ad8e2863b9070f6db5d210d19dde3b5f7c348e4b51c40c0a0",
-      "modified_for_release": false
+      "release_sha256": "a30c62c83bd60fab18207daf3e41263b06bdff47d9a01a714ee2c5d312dcd8a0",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/measurement/unit_axes.py",
+      "path": "src/axis_rh/measurement/unit_axes.py",
       "source_sha256": "0eeb8c516ddb5e002f5b80090ac23d46428602968729567a5c91fd8e9dca4e4f",
-      "release_sha256": "0eeb8c516ddb5e002f5b80090ac23d46428602968729567a5c91fd8e9dca4e4f",
-      "modified_for_release": false
+      "release_sha256": "b87e512d16ba8b8d5ed14f6b04c088caef61a69e0fbc84e3c535003c2601ef11",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/assistant_axis/__init__.py",
+      "path": "src/axis_rh/assistant_axis/__init__.py",
       "source_sha256": "dc40b535f54f8800b295bf365737defb2bfb9ace77de885e6d44de2b5dd612e0",
       "release_sha256": "dc40b535f54f8800b295bf365737defb2bfb9ace77de885e6d44de2b5dd612e0",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/assistant_axis/projection.py",
+      "path": "src/axis_rh/assistant_axis/projection.py",
       "source_sha256": "a428ba75a0d043cb1ac4efeae900e44357b2161af4c8b90c8faef0ca984a72a1",
-      "release_sha256": "a428ba75a0d043cb1ac4efeae900e44357b2161af4c8b90c8faef0ca984a72a1",
-      "modified_for_release": false
+      "release_sha256": "43fec81cad9ae3c2f327be64d1e0a0533e739127d678ff9212d271df64417f70",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/soo/__init__.py",
+      "path": "src/axis_rh/soo/__init__.py",
       "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "release_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/soo/activations.py",
+      "path": "src/axis_rh/soo/activations.py",
       "source_sha256": "1ba32d07af6079d8ab463cd4c60ec97a11c12fab70b458cfbe6da8e64f3bd228",
       "release_sha256": "1ba32d07af6079d8ab463cd4c60ec97a11c12fab70b458cfbe6da8e64f3bd228",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/codebench/__init__.py",
+      "path": "src/axis_rh/codebench/__init__.py",
       "source_sha256": "bc36eab8adacb32452a98af9a640e09c263384df240350a396414a9904231bfa",
       "release_sha256": "bc36eab8adacb32452a98af9a640e09c263384df240350a396414a9904231bfa",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/codebench/harness.py",
+      "path": "src/axis_rh/codebench/harness.py",
       "source_sha256": "0c8eedd049c7046bce1480bddf66ff06965b48eac80dea614921ad2a5894822a",
-      "release_sha256": "0c8eedd049c7046bce1480bddf66ff06965b48eac80dea614921ad2a5894822a",
-      "modified_for_release": false
+      "release_sha256": "9714b33e833048f27d36519792886cd76ee1ef63cf8cc8c8ef3ae969c0b94e75",
+      "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/codebench/sandbox.py",
+      "path": "src/axis_rh/codebench/sandbox.py",
       "source_sha256": "947046910f6ee2335b4c220e623dec4ed6391169d7509293f215dec11d960b14",
       "release_sha256": "947046910f6ee2335b4c220e623dec4ed6391169d7509293f215dec11d960b14",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/goodfire_rh_metrics/__init__.py",
+      "path": "src/axis_rh/goodfire_rh_metrics/__init__.py",
       "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "release_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/goodfire_rh_metrics/model_specifics.py",
+      "path": "src/axis_rh/goodfire_rh_metrics/model_specifics.py",
       "source_sha256": "baa9637a978dc01fff49b8cdf4d1f2620f618184a8fca4700ce21e68c465bb43",
       "release_sha256": "baa9637a978dc01fff49b8cdf4d1f2620f618184a8fca4700ce21e68c465bb43",
       "modified_for_release": false
     },
     {
-      "path": "src/selfconcept/correlation/generate.py",
+      "path": "src/axis_rh/correlation/generate.py",
       "source_sha256": "eb919b662152da1e1aa55dd0289103763a301fa9cd803ab03694790484c4a8d3",
-      "release_sha256": "534c5a6e08ff81210cd0db08f2f9ed1badd95427487376eec32bc581c990cb74",
+      "release_sha256": "61461cd0be5664b228ab1ca127630b45bf4a0ea0c2b49ca9d1255fd72ce7e719",
       "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/correlation/transcripts.py",
+      "path": "src/axis_rh/correlation/transcripts.py",
       "source_sha256": "33755a76a7fca1ff1f19a29ce33c7b641f89405462f0502dc55def7094ebf6f1",
-      "release_sha256": "d20346348c37fd98cf3d3708bbe7a5427274c7a2d944dd95acbd838c8fc3389b",
+      "release_sha256": "7de89017022fe05c8d3789569ec03c0708243619a126ed9971369fe1f42c7eec",
       "modified_for_release": true
     },
     {
-      "path": "src/selfconcept/correlation/analyze.py",
+      "path": "src/axis_rh/correlation/analyze.py",
       "source_sha256": "868b89d39cb0fbd0ba847f6857da4cf7bfd9617b2e42f2256622baf4a74ae177",
       "release_sha256": "dcf98287c188829663ac521c5d1a78e6c8530cca3c2b2d490636b37893c864c8",
       "modified_for_release": true
@@ -177,25 +177,25 @@
     {
       "path": "tests/test_random_vectors.py",
       "source_sha256": "bbd1421449c31e8c8244a104586d7f8554b8c70cedff0445793ef7b7b8035931",
-      "release_sha256": "bbd1421449c31e8c8244a104586d7f8554b8c70cedff0445793ef7b7b8035931",
-      "modified_for_release": false
+      "release_sha256": "e16774a01776e0cd49852149da1f2dfbbda44b7aab4b0ec54f46eb98c335f2a2",
+      "modified_for_release": true
     },
     {
       "path": "tests/test_direction_analysis.py",
       "source_sha256": "90e1c116b27b27f5a135d2617b1f113b0b4a5950e6517d3f3589241a29d723cf",
-      "release_sha256": "90e1c116b27b27f5a135d2617b1f113b0b4a5950e6517d3f3589241a29d723cf",
-      "modified_for_release": false
+      "release_sha256": "df49be40e39aabb568c7687e5258804ae6b3cb781ed49cd9a4617b18bdeff068",
+      "modified_for_release": true
     },
     {
       "path": "scripts/anisotropy_noise_check.py",
       "source_sha256": "a82a4536bf38b8fe2694d512390b0384b2f841fd87af0e039f4c07dd51649411",
-      "release_sha256": "5683b7cd909aa83a6e3088de7a5505b6d4ddfce60f63492afca3480c35dd6e59",
+      "release_sha256": "0f9965aa62aa236de2364415fbc3ff10f886c407b1dbe0751ae4240a65e80fa0",
       "modified_for_release": true
     },
     {
       "path": "NOTICE.md",
       "source_sha256": "52c7cb609f100e1836454dcd8a80570a03f8983c61c6dc51d30a37b32807ce03",
-      "release_sha256": "2772cf63985e1d4ef7130dd4e7650d4321e7bcee4abdb3a7f794110b4fbcb033",
+      "release_sha256": "2b8d213d017adfa08515477731015e8aa0abdf086444eb04ad4bc8025a9a5b7b",
       "modified_for_release": true
     }
   ],

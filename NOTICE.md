@@ -1,7 +1,14 @@
-This release was extracted from the original research implementation. Jansen Nye
-conducted the random-direction controls and analyses. Koby Lewis developed the
-Assistant Axis extraction and reward-hacking setup used in the study. Shared
-utilities retain their original source provenance in SOURCE_MANIFEST.json.
+Research contributions:
+
+- Jansen Nye: random-direction controls, statistical analyses, and release packaging.
+- Koby Lewis: Assistant Axis extraction and reward-hacking setup used in the study,
+  including extraction/test-harness code used by this release.
+- Shared research utilities were developed at BYU DRAGN Labs with Nancy Fulda.
+
+The copyright notice credits Jansen Nye and contributors and does not assign
+sole ownership to the release maintainer. Original file hashes are retained in
+`SOURCE_MANIFEST.json`. Contribution credit does not establish institutional
+ownership or record a collaborator's approval of a license or artifact release.
 
 The upstream notice below is preserved from the source repository. Its directory
 list describes that larger project; this release includes only a subset.

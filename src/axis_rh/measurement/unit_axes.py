@@ -8,7 +8,7 @@ import numpy as np
 import torch
 from torch import Tensor
 
-from selfconcept.measurement.interface import TokenScorer
+from axis_rh.measurement.interface import TokenScorer
 
 type UnitDirectionsByLayer = dict[int, dict[str, np.ndarray]]
 

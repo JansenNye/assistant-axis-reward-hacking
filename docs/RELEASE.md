@@ -1,14 +1,13 @@
 # Release provenance and validation
 
-Prepared October 21, 2026 from the original research implementation.
-The control-analysis worktree also held
-uncommitted control code; comparison confirmed that the extraction, matching and record
-modules had already reached the main branch unchanged. This release uses the main
-branch's later analysis implementation, including per-direction bootstrap intervals
-and the held-out mean-difference analysis. Full original file hashes are recorded in
-`SOURCE_MANIFEST.json`.
+Prepared October 21, 2026 from the research implementation used for the posts.
+Original and released file hashes are recorded in `SOURCE_MANIFEST.json`.
+Internal repository identifiers and source locations are omitted from the public
+manifest; a complete mapping is retained privately by the release maintainer.
 
 Packaging changes:
+
+- Renamed the import package to `axis_rh`, avoiding conflicts with `soo_experiments`.
 
 - Extracted the control/statistics pipeline and its required matching, tokenization,
   measurement and transcript-reconstruction helpers.
@@ -36,9 +35,19 @@ direction AUROC of 0.938 before noise and 0.914 at the post's noise setting, wit
 direction 2.5/97.5 percentiles of 0.407/0.588. See `published/held-out.json` and
 `published/noise-check.txt`.
 
-The raw cache is copied locally under ignored `artifacts/` for validation and is not
-in the release. No GPU jobs, model generation, or original data collection were rerun.
+The original cache stays under ignored `artifacts/`; a minimal, verified observation
+bundle is publicly hosted on Hugging Face (see `DATA.md`). No GPU jobs, model generation, or original data collection were rerun.
 Tests and cached analyses establish code behavior and numerical reproduction from
 existing inputs, not an independent replication of data collection.
 
 Both wheel and source distributions build successfully with `uv build`.
+
+Version 0.2.0 removes internal source identifiers from current release files,
+credits contributors in the MIT copyright notice, and uses a distinct import namespace.
+The existing test suite passes after the rename. Earlier Git commits are not rewritten.
+
+The reduced 824-observation bundle removes generated code from record metadata.
+Reanalysis reproduces every numeric cell in both the 256- and 2,000-direction
+archived analyses exactly, and reproduces the held-out baseline and noise results.
+The public exporter produces exactly the input files used by that verification.
+Both distributions install together without overlapping package files.

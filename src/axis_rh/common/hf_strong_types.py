@@ -16,7 +16,7 @@ from transformers.tokenization_utils_base import PreTokenizedInput, TextInput
 
 
 # re-exports here, don't remove "unused"
-from selfconcept.common.chat import AllRoles, Conversation, ConversationTurn, UserAssistantRoles, _Conversation
+from axis_rh.common.chat import AllRoles, Conversation, ConversationTurn, UserAssistantRoles, _Conversation
 
 
 type OffsetMappingPresent = list[tuple[int, int]]

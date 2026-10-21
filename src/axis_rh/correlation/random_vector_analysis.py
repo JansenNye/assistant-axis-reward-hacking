@@ -7,8 +7,8 @@ from pathlib import Path
 import numpy as np
 from scipy.stats import rankdata
 
-from selfconcept.assistant_axis.projection import load_unit_axes
-from selfconcept.common.jsonl import read_jsonl
+from axis_rh.assistant_axis.projection import load_unit_axes
+from axis_rh.common.jsonl import read_jsonl
 from .analyze import binary_outcome
 from .random_vectors import random_directions, REGIONS, sha256
 

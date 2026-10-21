@@ -6,7 +6,7 @@ Reuses its cache loader, pair counting, projection and baseline code; adds STRON
 cosine of each direction with the in-cohort hack-minus-non-hack mean difference (a ceiling, fit with the
 scored problem held out).
 
-usage: python -m selfconcept.correlation.direction_analysis SHARD_DIR [...] --direction NAME=PATH [...]
+usage: python -m axis_rh.correlation.direction_analysis SHARD_DIR [...] --direction NAME=PATH [...]
            --reference NAME=PATH --out DIR
 """
 import argparse
@@ -16,7 +16,7 @@ from pathlib import Path
 import numpy as np
 from scipy.stats import rankdata
 
-from selfconcept.assistant_axis.projection import load_unit_axes
+from axis_rh.assistant_axis.projection import load_unit_axes
 from .analyze import binary_outcome
 from .random_vector_analysis import baseline_aurocs, group_indices, load_cache, pair_totals, project
 from .random_vectors import random_directions, REGIONS, sha256
@@ -198,7 +198,7 @@ def main():
               "coverage": {"expected": len(records), "complete": len(completed)}, "geometry": geometry, "cells": cells,
               "limitations": ["Negative labels are unflagged, not judge-confirmed non-hacks.",
                               "Random-direction tail fractions describe specificity, not a label-permutation test.",
-                              "The held-out diff-of-means AUROC is a ceiling for layer-wise linear directions on this cohort, not a validated behavioral direction.",
+                              "The held-out diff-of-means AUROC is a linear baseline evaluated on this cohort, not an independently validated direction.",
                               "Orthogonalized directions change the hypothesis being tested; both versions are reported."]}
     (args.out / "analysis.json").write_text(json.dumps(result, indent=2, allow_nan=False))
     (args.out / "analysis.md").write_text(render_markdown(result))

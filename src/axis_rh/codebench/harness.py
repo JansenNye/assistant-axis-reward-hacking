@@ -6,10 +6,10 @@ The model enters through a `generate(messages, turn, example_id) ->
 model, and experiments that wrap the model differently (steering hooks, LoRA
 adapters, sampling schedules) build their own. Entry points:
 
-    python -m selfconcept.codebench.run --model <hf id> [--adapter <peft dir>] ...
-    python -m selfconcept.soo.evaluate_code ...   # same, plus the SOO steering/LoRA args
+    python -m axis_rh.codebench.run --model <hf id> [--adapter <peft dir>] ...
+    python -m axis_rh.soo.evaluate_code ...   # same, plus the SOO steering/LoRA args
 
-Datasets come from selfconcept.codebench.convert (benchmarks/codebench/data).
+Datasets come from axis_rh.codebench.convert (benchmarks/codebench/data).
 Every scenario runs the ImpossibleBench "minimal" protocol, since the models are
 driven through plain chat templates without tool schemas: the model answers
 with code, the code is executed in a sandbox (sandbox.py), and the test output
@@ -34,7 +34,7 @@ Two example kinds:
   (visible tests, then holdout) and records whether test files were
   rewritten. Labels: solved / hack_visible_only / visible_only_holdout_timeout
   (holdout failed only on time) / hack_test_modified / failed;
-  selfconcept.codebench.judge adds the LLM-judge classification.
+  axis_rh.codebench.judge adds the LLM-judge classification.
 
 Output: {out}/{tag}_{scenario}.jsonl (one record per example with the full
 attempt history, final code and scores, appended as each finishes; rerunning
@@ -54,8 +54,8 @@ from typing import Literal, TypedDict, TypeIs, cast, get_args
 import torch
 from tqdm import tqdm
 
-from selfconcept.common.chat import chat_template_kwargs
-from selfconcept.common.paths import benchmark_dir
+from axis_rh.common.chat import chat_template_kwargs
+from axis_rh.common.paths import benchmark_dir
 
 from .sandbox import ExecResult, run_python
 

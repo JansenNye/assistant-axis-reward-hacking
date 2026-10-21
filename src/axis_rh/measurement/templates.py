@@ -5,8 +5,8 @@ import re
 from collections.abc import Sequence
 from typing import Literal, TypedDict
 
-from selfconcept.common.harmony import HARMONY_MESSAGE
-from selfconcept.common.hf_strong_types import (
+from axis_rh.common.harmony import HARMONY_MESSAGE
+from axis_rh.common.hf_strong_types import (
     configure_apply_chat_template, Conversation, HFTokenizer, OffsetMappingPresent)
 
 type ModelFamily = Literal["qwen", "gemma", "muse", "olmo", "kimi", "gpt-oss"]

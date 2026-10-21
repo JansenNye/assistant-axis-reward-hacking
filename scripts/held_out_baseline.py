@@ -5,10 +5,10 @@ from pathlib import Path
 
 import numpy as np
 
-from selfconcept.correlation.analyze import binary_outcome
-from selfconcept.correlation.direction_analysis import held_out_diff_means
-from selfconcept.correlation.random_vector_analysis import group_indices, load_cache, pair_totals
-from selfconcept.correlation.random_vectors import REGIONS
+from axis_rh.correlation.analyze import binary_outcome
+from axis_rh.correlation.direction_analysis import held_out_diff_means
+from axis_rh.correlation.random_vector_analysis import group_indices, load_cache, pair_totals
+from axis_rh.correlation.random_vectors import REGIONS
 
 
 def main():

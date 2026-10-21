@@ -19,11 +19,11 @@ from pathlib import Path
 import shlex
 from typing import Any, cast, Literal, NamedTuple, NotRequired, TypedDict
 
-from selfconcept.codebench import harness
-from selfconcept.common.harmony import join_harmony_completion
-from selfconcept.common.hf_strong_types import Conversation
-from selfconcept.common.jsonl import read_jsonl
-from selfconcept.goodfire_rh_metrics.model_specifics import harmony_model_specifics, ModelSpecifics
+from axis_rh.codebench import harness
+from axis_rh.common.harmony import join_harmony_completion
+from axis_rh.common.hf_strong_types import Conversation
+from axis_rh.common.jsonl import read_jsonl
+from axis_rh.goodfire_rh_metrics.model_specifics import harmony_model_specifics, ModelSpecifics
 from .records import OutcomeRecord, TranscriptRecord
 
 logger = logging.getLogger(__name__)

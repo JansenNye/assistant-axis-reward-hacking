@@ -10,10 +10,10 @@ import numpy as np
 import torch
 from transformers import LlamaConfig, LlamaForCausalLM
 
-from selfconcept.measurement.capture import capture
-from selfconcept.correlation.random_vectors import random_directions, pooled_scorer
-from selfconcept.correlation.random_vector_analysis import analyze_cell, adjusted_correlations, baseline_aurocs, pair_totals, compare_to_random, load_cache, project, main as analyze_main
-from selfconcept.correlation.rh_hillclimb import LabeledRecord, WorklistSettings, strict_transcripts
+from axis_rh.measurement.capture import capture
+from axis_rh.correlation.random_vectors import random_directions, pooled_scorer
+from axis_rh.correlation.random_vector_analysis import analyze_cell, adjusted_correlations, baseline_aurocs, pair_totals, compare_to_random, load_cache, project, main as analyze_main
+from axis_rh.correlation.rh_hillclimb import LabeledRecord, WorklistSettings, strict_transcripts
 
 
 class RandomControlTests(unittest.TestCase):
@@ -137,9 +137,9 @@ class RandomControlTests(unittest.TestCase):
             root = Path(temp)
             (root/'data').mkdir()
             (root/'data/tag.jsonl').write_text(json.dumps({'example_id': 'p'})+'\n')
-            with patch('selfconcept.correlation.rh_hillclimb.load_worklists', return_value={(r.run, 'tag'): WorklistSettings({}, None) for r in records}), \
-                 patch('selfconcept.correlation.rh_hillclimb.conversation_before_turn', return_value=[{'role': 'user', 'content': 'same'}]), \
-                 patch('selfconcept.correlation.rh_hillclimb.build_transcripts', side_effect=build):
+            with patch('axis_rh.correlation.rh_hillclimb.load_worklists', return_value={(r.run, 'tag'): WorklistSettings({}, None) for r in records}), \
+                 patch('axis_rh.correlation.rh_hillclimb.conversation_before_turn', return_value=[{'role': 'user', 'content': 'same'}]), \
+                 patch('axis_rh.correlation.rh_hillclimb.build_transcripts', side_effect=build):
                 rows = strict_transcripts(root, records)
         self.assertEqual(len(rows), 4)
         self.assertEqual(len({r['outcome']['stratum'] for r in rows}), 2)

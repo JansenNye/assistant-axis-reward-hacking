@@ -20,8 +20,8 @@ Shared utilities originated in the DRAGN Labs experiment repository; see `NOTICE
 
 Use Python 3.13 or newer and a PyTorch build suitable for your hardware:
 
-Use a separate virtual environment from the SOO repository; both preserve the original
-`selfconcept` package namespace.
+The import package is `axis_rh`; the companion SOO package is `soo_experiments`,
+so they can coexist in one environment.
 
 ```bash
 python3.13 -m venv .venv
@@ -38,11 +38,27 @@ The plotting command reads archived aggregate statistics and writes a figure to 
 
 ## What data is included?
 
-`published/` contains aggregate analysis outputs for the original 256- and 2,000-direction
-controls. It does **not** include the original coding transcripts, model weights, axis tensor,
-or per-transcript activation caches. Those inputs must be supplied separately to rerun the
-statistics from observations. `docs/DATA.md` specifies their formats. Plotting the archived
-statistics is possible immediately after installation.
+The [public observation bundle](https://huggingface.co/datasets/Arkonyx/assistant-axis-reward-hacking)
+contains all 824 observations, six activation-cache shards, and the original axis tensor
+(about 27 MB compressed). Generated code has been removed from metadata; labels,
+matching strata, activations and lengths are unchanged. Full conversations and base-model
+weights are not included. `published/` retains the aggregate outputs for comparison.
+See [DATA.md](docs/DATA.md) for formats and limitations.
+
+Download the fixed release into the repository root:
+
+```bash
+hf download Arkonyx/assistant-axis-reward-hacking --repo-type dataset \
+  --revision 3bd85dd4126fef62dd8607c18805805588d4d5d4 \
+  assistant-axis-observations.tar.gz SHA256SUMS \
+  --local-dir outputs/observation-download
+(cd outputs/observation-download && sha256sum -c SHA256SUMS)
+tar -xzf outputs/observation-download/assistant-axis-observations.tar.gz
+```
+
+The archive extracts entirely under `artifacts/`. Its SHA-256 and immutable Hub revision
+are also recorded in [`published/observation-artifact.json`](published/observation-artifact.json).
+Then use the CPU reanalysis commands below; no model download or GPU is needed.
 
 The post combines results from different random-direction counts. In particular, its
 reasoning-region tail fraction is 5.4% for 256 directions and 4.4% for 2,000. See
@@ -50,14 +66,14 @@ reasoning-region tail fraction is 5.4% for 256 directions and 4.4% for 2,000. Se
 
 ## Reanalyze existing activation caches (CPU)
 
-From the repository root, with an axis tensor and all cache shards placed under `artifacts/`:
+From the repository root, after downloading and extracting the observation bundle:
 
 ```bash
-python -m selfconcept.correlation.random_vector_analysis artifacts/cache/shard_* \
+python -m axis_rh.correlation.random_vector_analysis artifacts/cache/shard_* \
   --axis artifacts/assistant_axis.pt --out outputs/random-256 \
   --random-count 256 --seed 1729 --bootstrap 1000
 
-python -m selfconcept.correlation.random_vector_analysis artifacts/cache/shard_* \
+python -m axis_rh.correlation.random_vector_analysis artifacts/cache/shard_* \
   --axis artifacts/assistant_axis.pt --out outputs/random-2000 \
   --random-count 2000 --seed 1729 --bootstrap 1000
 
@@ -81,7 +97,7 @@ Extraction needs enough GPU memory for the model and its input sequences.
 
 ```bash
 python -m pip install -e '.[extraction]'
-python -m selfconcept.correlation.random_vectors \
+python -m axis_rh.correlation.random_vectors \
   --transcripts artifacts/transcripts.jsonl \
   --revision b5c939de8f754692c1647ca79fbf85e8c1e70f8a \
   --layers 17 --out artifacts/cache/shard_0

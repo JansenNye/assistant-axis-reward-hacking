@@ -6,7 +6,7 @@ from jaxtyping import Float
 from torch import nn, Tensor
 from torch.utils.hooks import RemovableHandle
 
-from selfconcept.soo.activations import get_decoder_layers
+from axis_rh.soo.activations import get_decoder_layers
 from .interface import TokenScorer
 
 type ResidualsByLayer = dict[int, list[Float[Tensor, "seq hidden"]]]

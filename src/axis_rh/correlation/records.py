@@ -1,9 +1,9 @@
 """On-disk record shapes. Field names are the keys existing runs were written with."""
 from typing import Any, Literal, NotRequired, TypedDict
 
-from selfconcept.common.hf_strong_types import Conversation
-from selfconcept.measurement.interface import MeasurementName
-from selfconcept.measurement.templates import ResponseSpans
+from axis_rh.common.hf_strong_types import Conversation
+from axis_rh.measurement.interface import MeasurementName
+from axis_rh.measurement.templates import ResponseSpans
 
 type Region = Literal["prompt", "cot", "final"]
 type GenerationStatus = Literal["complete", "truncated", "no_final"]

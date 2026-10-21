@@ -8,7 +8,7 @@ from unittest.mock import patch
 import numpy as np
 import torch
 
-from selfconcept.correlation.direction_analysis import held_out_diff_means, main as analyze_main, orthogonalize, partial_rank_correlations
+from axis_rh.correlation.direction_analysis import held_out_diff_means, main as analyze_main, orthogonalize, partial_rank_correlations
 
 
 class DirectionAnalysisTests(unittest.TestCase):
