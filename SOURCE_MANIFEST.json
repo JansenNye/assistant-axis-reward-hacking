@@ -27,13 +27,13 @@
     {
       "path": "src/axis_rh/correlation/records.py",
       "source_sha256": "24a5c93e4cd50e5b53ee0d967a8e2001ecee001670226855724fb490aa7b9298",
-      "release_sha256": "aa827283c917dfb064a66fa25529894803b0f536c1eb45a20bfe4ff2807d2d6e",
+      "release_sha256": "eb45eba97e54b4a73f6116ef463cf0f38501cdad832aedada21c69f450ed1cfe",
       "modified_for_release": true
     },
     {
       "path": "src/axis_rh/correlation/rh_hillclimb.py",
       "source_sha256": "cbd04684ac54e186345570203832e282eb51fcb2d3d10ee29453d4a0cf2c69ca",
-      "release_sha256": "690f3ebaa693cb86a2a290b0c171e77394e04b67042f039e3870b4937bfabad5",
+      "release_sha256": "48a15061f53d239003451a7bc14d6d531f57542780c0f8147d0b97636addabe4",
       "modified_for_release": true
     },
     {
@@ -59,12 +59,6 @@
       "source_sha256": "a8de1168e0ad311785d370e5e5f728cb3471cef24bd574a51d63794fd81242a4",
       "release_sha256": "a8de1168e0ad311785d370e5e5f728cb3471cef24bd574a51d63794fd81242a4",
       "modified_for_release": false
-    },
-    {
-      "path": "src/axis_rh/common/hf_strong_types.py",
-      "source_sha256": "a34f82f087bcdf444baa55042f94a6a4caee41dade92c50c9484a66a00e31357",
-      "release_sha256": "772d86ab5708e43c1f9af76cc38830fdcfe5a50317dc55fad7afe58bdd7d00c2",
-      "modified_for_release": true
     },
     {
       "path": "src/axis_rh/common/paths.py",
@@ -93,7 +87,7 @@
     {
       "path": "src/axis_rh/measurement/templates.py",
       "source_sha256": "4b5b14ac2ec9dd9ad8e2863b9070f6db5d210d19dde3b5f7c348e4b51c40c0a0",
-      "release_sha256": "a30c62c83bd60fab18207daf3e41263b06bdff47d9a01a714ee2c5d312dcd8a0",
+      "release_sha256": "49ad95f1fee1e86700eac58d10561b2dd16c6508337167171650ea76f2ae8d62",
       "modified_for_release": true
     },
     {
@@ -129,20 +123,14 @@
     {
       "path": "src/axis_rh/codebench/__init__.py",
       "source_sha256": "bc36eab8adacb32452a98af9a640e09c263384df240350a396414a9904231bfa",
-      "release_sha256": "bc36eab8adacb32452a98af9a640e09c263384df240350a396414a9904231bfa",
-      "modified_for_release": false
+      "release_sha256": "33ea4a3100214f295f42795d95a2a2c38abcfc0f959e06705bff81ccbc15d7f4",
+      "modified_for_release": true
     },
     {
       "path": "src/axis_rh/codebench/harness.py",
       "source_sha256": "0c8eedd049c7046bce1480bddf66ff06965b48eac80dea614921ad2a5894822a",
-      "release_sha256": "9714b33e833048f27d36519792886cd76ee1ef63cf8cc8c8ef3ae969c0b94e75",
+      "release_sha256": "7f27d4a29d05ec77902789be05241d2e8f41e4472830a9500cf52842c6a5b1df",
       "modified_for_release": true
-    },
-    {
-      "path": "src/axis_rh/codebench/sandbox.py",
-      "source_sha256": "947046910f6ee2335b4c220e623dec4ed6391169d7509293f215dec11d960b14",
-      "release_sha256": "947046910f6ee2335b4c220e623dec4ed6391169d7509293f215dec11d960b14",
-      "modified_for_release": false
     },
     {
       "path": "src/axis_rh/goodfire_rh_metrics/__init__.py",
@@ -153,19 +141,19 @@
     {
       "path": "src/axis_rh/goodfire_rh_metrics/model_specifics.py",
       "source_sha256": "baa9637a978dc01fff49b8cdf4d1f2620f618184a8fca4700ce21e68c465bb43",
-      "release_sha256": "baa9637a978dc01fff49b8cdf4d1f2620f618184a8fca4700ce21e68c465bb43",
-      "modified_for_release": false
+      "release_sha256": "e1b656f809b72fb7c35dd7fdd91a9468aaa39c21349b42276e0d2337e3aacf33",
+      "modified_for_release": true
     },
     {
       "path": "src/axis_rh/correlation/generate.py",
       "source_sha256": "eb919b662152da1e1aa55dd0289103763a301fa9cd803ab03694790484c4a8d3",
-      "release_sha256": "61461cd0be5664b228ab1ca127630b45bf4a0ea0c2b49ca9d1255fd72ce7e719",
+      "release_sha256": "52f9ad1f0e73a4582228785504f52a17abbd61b2f39be76a77b0b44bbb1211f1",
       "modified_for_release": true
     },
     {
       "path": "src/axis_rh/correlation/transcripts.py",
       "source_sha256": "33755a76a7fca1ff1f19a29ce33c7b641f89405462f0502dc55def7094ebf6f1",
-      "release_sha256": "7de89017022fe05c8d3789569ec03c0708243619a126ed9971369fe1f42c7eec",
+      "release_sha256": "6b85c22125a113e3cf6bf30989ce249106ca572848f237545888fdae22ae347a",
       "modified_for_release": true
     },
     {
@@ -197,6 +185,36 @@
       "source_sha256": "52c7cb609f100e1836454dcd8a80570a03f8983c61c6dc51d30a37b32807ce03",
       "release_sha256": "2b8d213d017adfa08515477731015e8aa0abdf086444eb04ad4bc8025a9a5b7b",
       "modified_for_release": true
+    },
+    {
+      "path": "src/axis_rh/codebench/evilgenie_templates/solution_function.py.jinja",
+      "source_sha256": "21c1b7fc46b00043734cb28bb31a7c1de7095948ee9bb05f135edc96f01f06f6",
+      "release_sha256": "21c1b7fc46b00043734cb28bb31a7c1de7095948ee9bb05f135edc96f01f06f6",
+      "modified_for_release": false
+    },
+    {
+      "path": "src/axis_rh/codebench/evilgenie_templates/solution_stdio.py.jinja",
+      "source_sha256": "90d160624f8a3d6add9fc9be058059e14d2bd86525e49306dc5d858e8dc75c1d",
+      "release_sha256": "90d160624f8a3d6add9fc9be058059e14d2bd86525e49306dc5d858e8dc75c1d",
+      "modified_for_release": false
+    },
+    {
+      "path": "src/axis_rh/codebench/evilgenie_templates/test_runner_function.py.jinja",
+      "source_sha256": "f53fc13328302ada891d7d85594ec882ed18dd19ff5c673ffabb41dcd0db1380",
+      "release_sha256": "f53fc13328302ada891d7d85594ec882ed18dd19ff5c673ffabb41dcd0db1380",
+      "modified_for_release": false
+    },
+    {
+      "path": "src/axis_rh/codebench/evilgenie_templates/test_runner_stdio.py.jinja",
+      "source_sha256": "ad922b4e8174857e8c0c87f0c85e04ab8107d3e3fece645844863aab99954b7b",
+      "release_sha256": "ad922b4e8174857e8c0c87f0c85e04ab8107d3e3fece645844863aab99954b7b",
+      "modified_for_release": false
+    },
+    {
+      "path": "src/axis_rh/codebench/evilgenie_templates/test_runner_stdio_tokens.py.jinja",
+      "source_sha256": "a9d08c42fdc8f3772bea9d660e062988acd5c2a0e2a859b160d386875a44959a",
+      "release_sha256": "a9d08c42fdc8f3772bea9d660e062988acd5c2a0e2a859b160d386875a44959a",
+      "modified_for_release": false
     }
   ],
   "packaging_notes": "See docs/RELEASE.md; source hashes precede packaging edits.",

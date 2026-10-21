@@ -6,8 +6,8 @@ from collections.abc import Sequence
 from typing import Literal, TypedDict
 
 from axis_rh.common.harmony import HARMONY_MESSAGE
-from axis_rh.common.hf_strong_types import (
-    configure_apply_chat_template, Conversation, HFTokenizer, OffsetMappingPresent)
+from axis_rh.common.chat import Conversation
+from transformers import PreTrainedTokenizerBase
 
 type ModelFamily = Literal["qwen", "gemma", "muse", "olmo", "kimi", "gpt-oss"]
 type CharSpan = tuple[int, int]
@@ -55,11 +55,11 @@ def reasoning_template_kwargs(family: ModelFamily) -> dict[str, bool | str]:
     return {}
 
 
-def render_generation_prompt(tokenizer: HFTokenizer, family: ModelFamily, messages: Conversation) -> str:
+def render_generation_prompt(tokenizer: PreTrainedTokenizerBase, family: ModelFamily, messages: Conversation) -> str:
     # Never append answer_prefix to an open thought header: that suppresses or
     # contaminates reasoning. The runner supplies it as a user instruction.
-    return configure_apply_chat_template(tokenizer).tokenize(False)(
-        messages, add_generation_prompt=True, **reasoning_template_kwargs(family))
+    return tokenizer.apply_chat_template(
+        messages, add_generation_prompt=True, tokenize=False, **reasoning_template_kwargs(family))
 
 
 def muse_response_spans(prompt: str, raw_response: str) -> ResponseSpans:
@@ -114,14 +114,14 @@ def response_spans(prompt: str, raw_response: str, family: ModelFamily) -> Respo
     return spans
 
 
-def final_answer_text(raw_response: str, spans: ResponseSpans, tokenizer: HFTokenizer) -> str:
+def final_answer_text(raw_response: str, spans: ResponseSpans, tokenizer: PreTrainedTokenizerBase) -> str:
     text = "".join(raw_response[start:end] for start, end in spans["final"])
     for special_token in tokenizer.all_special_tokens:
         text = text.replace(special_token, "")
     return text.strip()
 
 
-def content_token_indices(offsets: OffsetMappingPresent, spans: list[CharSpan],
+def content_token_indices(offsets: list[tuple[int, int]], spans: list[CharSpan],
                           special_ids: Sequence[int] = (), token_ids: Sequence[int] = ()) -> list[int]:
     """Exclude tags and tokens straddling a content boundary."""
     special = set(special_ids)

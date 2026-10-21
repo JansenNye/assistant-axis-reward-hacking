@@ -21,7 +21,7 @@ from typing import Any, cast, Literal, NamedTuple, NotRequired, TypedDict
 
 from axis_rh.codebench import harness
 from axis_rh.common.harmony import join_harmony_completion
-from axis_rh.common.hf_strong_types import Conversation
+from axis_rh.common.chat import Conversation
 from axis_rh.common.jsonl import read_jsonl
 from axis_rh.goodfire_rh_metrics.model_specifics import harmony_model_specifics, ModelSpecifics
 from .records import OutcomeRecord, TranscriptRecord

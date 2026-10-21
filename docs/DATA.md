@@ -1,72 +1,12 @@
-# Inputs and provenance
+# Observation data
 
-## Axis
+The [public MIT-licensed bundle](https://huggingface.co/datasets/Arkonyx/assistant-axis-reward-hacking)
+contains 824 GPT-OSS-120B observations, six activation-cache shards and the Assistant
+Axis tensor (27 MB compressed). It retains verdicts, matching strata and token counts;
+generated code is removed. Full conversations and base-model weights are not included.
+Koby Lewis developed the extraction/reward-hacking setup; Jansen Nye ran the controls.
 
-Supply a PyTorch tensor of shape `(36, 2880)` for GPT-OSS-120B, or a mapping containing
-that tensor under `axis` and the model identifier under `model`.
-`axis_rh.measurement.unit_axes.load_unit_axes` validates dimensions and normalizes
-each selected layer. The legacy tensor used in the study lacks embedded model metadata;
-its shape alone cannot authenticate its provenance. Load only trusted `.pt` files.
-The extraction and reward-hacking dataset are credited to Koby Lewis.
-
-## Transcripts
-
-The extraction CLI consumes one JSON object per line. Required fields are:
-
-```json
-{
-  "example_id": "unique-observation-id",
-  "scenario": "impossible_original",
-  "turn": 2,
-  "messages": [{"role": "user", "content": "Task or latest feedback"}],
-  "chat_kwargs": {},
-  "raw_response": "<|start|>assistant<|channel|>analysis<|message|>reasoning<|end|><|start|>assistant<|channel|>final<|message|>answer<|return|>",
-  "truncated": false,
-  "outcome": {
-    "status": "complete",
-    "model_key": "openai/gpt-oss-120b",
-    "scenario": "impossible_original",
-    "label": "reward_hacking",
-    "verdict": "HACK",
-    "strength": "STRONG",
-    "problem": "problem-id",
-    "stratum": "problem/protocol/run-family/turn identifier"
-  }
-}
-```
-
-The example illustrates the schema, not an observation from the study. Preserve the
-full original conversation, exact template settings, and channel markers in real input.
-Use `verdict: "unflagged"` for the comparison observations. A stratum must include
-the same problem, protocol, run family and turn. Do not collapse it to only the problem ID.
-`python -m axis_rh.correlation.rh_hillclimb --help` describes the original
-run-directory importer and its strict matching mode. It requires the original experiment
-data, worklists, reasoning sidecars and verdict files; these are not public inputs here.
-
-## Activation cache
-
-Each shard contains:
-
-- `manifest.json`: extraction identity (model/revision, input hash, layer list,
-  shard index/count, expected observations, software versions), model dimensions,
-  and completion status.
-- `records.jsonl`: one record per scored observation, including labels/stratum,
-  `region_counts` in prompt/reasoning/final order, `prompt_tokens`, and a relative
-  `residuals` path.
-- `residuals/*.npz`: `layer_17`, a float32 array of shape `(3, 2880)` holding the
-  three region means. An empty region is represented by NaNs, not zero activations.
-
-The analyzer rejects missing/duplicate shards, incompatible identities, and caches
-made with a smoke-test limit. Exact token alignment excludes control markers and the
-last unprocessed response token, matching the original scoring convention.
-
-## Public observation bundle
-
-The [MIT-licensed bundle on Hugging Face](https://huggingface.co/datasets/Arkonyx/assistant-axis-reward-hacking)
-contains all 824 observations, six cache shards, and the axis tensor (about 27 MB compressed).
-Generated source code is removed from outcome metadata; activations, verdicts, matching
-strata and lengths are preserved. No full coding transcripts or base-model checkpoints
-are distributed. SOO prompts and responses live in the companion repository.
+From the repository root:
 
 ```bash
 hf download Arkonyx/assistant-axis-reward-hacking --repo-type dataset \
@@ -77,30 +17,33 @@ hf download Arkonyx/assistant-axis-reward-hacking --repo-type dataset \
 tar -xzf outputs/observation-download/assistant-axis-observations.tar.gz
 ```
 
-Run the download commands from the repository root. All archive members live under
-`artifacts/`, so extraction does not overwrite the repository README. The artifact's
-immutable revision and SHA-256 are recorded in `published/observation-artifact.json`;
-`artifacts/OBSERVATION_MANIFEST.json` lists input-file hashes relative to the repository
-root. The original transcript hash identifies the inputs used during extraction,
-not the reduced metadata file.
+Everything extracts under `artifacts/`. The pinned revision and archive SHA-256 are
+in [`published/observation-artifact.json`](../published/observation-artifact.json).
+`artifacts/OBSERVATION_MANIFEST.json` lists file hashes relative to the repository root.
+Run the README's CPU reanalysis commands after extraction.
 
-The bundle reproduces the fixed-cohort statistics, including the 256/2,000 random-direction
-controls, held-out baseline, and noise experiment. It does not permit independent auditing
-of the original hacking judgments or fresh activation extraction from conversations;
-those require the underlying transcripts. Unflagged observations are not judge-confirmed
-non-hacks. The tensor shape alone cannot establish the axis's construction provenance;
-the pinned download and checksums identify the actual released study artifact.
+## File formats
 
-## Rebuild a minimal bundle from source caches
+| Input | Contents |
+|---|---|
+| Axis | Trusted PyTorch tensor `(36, 2880)`, or mapping with `axis` and `model`. Selected layer directions are normalized. Shape alone does not prove construction provenance. |
+| Shard `manifest.json` | Model/revision, extraction-input hash, layers, shard count/index, expected rows, software versions, dimensions and completion state. |
+| Shard `records.jsonl` | Observation ID, status, outcome verdict/label/problem/stratum, prompt/region token counts and relative residual file path. |
+| `residuals/*.npz` | Float32 `layer_17` array `(3, 2880)`: prompt, reasoning, final region means. Missing regions use NaNs. |
+| Transcripts for new extraction | JSONL with `example_id`, `scenario`, `turn`, `messages`, `chat_kwargs`, `raw_response` (channel markers retained), `truncated`, and `outcome`. See `TranscriptRecord` in `src/axis_rh/correlation/records.py`. |
 
-The local exporter removes generated code and unused outcome fields, requires explicit
-verdicts so removing code cannot change labels, and preserves scoring inputs:
+A stratum preserves problem, protocol, run family and turn. The analyzer rejects missing
+or duplicate shards and smoke-test caches. Exact token alignment excludes control markers
+and the last unprocessed response token. The transcript hash in a manifest identifies
+original extraction inputs, not the reduced metadata file.
 
-```bash
-python scripts/prepare_observations.py artifacts/cache/shard_* \
-  --axis artifacts/assistant_axis.pt --out outputs/observation-bundle
-```
+These inputs support fixed-cohort statistical reanalysis. They do not support independently
+rejudging hacking or repeating extraction without the conversations. “Unflagged” is not a
+judge-confirmed negative label. The original coding-run importer
+(`axis_rh.correlation.rh_hillclimb`) is optional provenance tooling for the original run
+layout; it requires run data, worklists and reasoning sidecars not included here. Public
+cache analysis does not depend on it. Its prompt helpers are tested with synthetic inputs.
 
-The public bundle's inputs match this export byte for byte. This command prepares local
-files and performs no upload. Repository code and the observation bundle use MIT, with
-Koby Lewis and the shared research contributors credited in the notices and dataset card.
+To rebuild reduced metadata from complete source caches, use
+`scripts/prepare_observations.py --help`. That exporter preserves scoring inputs and
+writes a checksum manifest; it performs no upload.

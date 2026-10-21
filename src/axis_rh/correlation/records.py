@@ -1,7 +1,7 @@
 """On-disk record shapes. Field names are the keys existing runs were written with."""
 from typing import Any, Literal, NotRequired, TypedDict
 
-from axis_rh.common.hf_strong_types import Conversation
+from axis_rh.common.chat import Conversation
 from axis_rh.measurement.interface import MeasurementName
 from axis_rh.measurement.templates import ResponseSpans
 
