@@ -1,0 +1,26 @@
+{
+  "method": "pooled class means fitted excluding the scored problem; informative matched strata only",
+  "cells": [
+    {
+      "layer": 17,
+      "region": "prompt",
+      "n": 824,
+      "n_pairs": 868,
+      "held_out_diff_means_auroc": 0.5921658986175116
+    },
+    {
+      "layer": 17,
+      "region": "cot",
+      "n": 823,
+      "n_pairs": 867,
+      "held_out_diff_means_auroc": 0.7647058823529411
+    },
+    {
+      "layer": 17,
+      "region": "final",
+      "n": 824,
+      "n_pairs": 868,
+      "held_out_diff_means_auroc": 0.9285714285714286
+    }
+  ]
+}

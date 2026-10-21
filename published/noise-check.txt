@@ -1,0 +1,24 @@
+
+=== cot region, n=823, hacks=189 ===
+|delta| = 481.9; within-class var along delta = 101841.3; d' along delta = 1.51 (Gaussian AUROC along delta = 0.857)
+tr(Sigma) = 706894.2; var fraction along delta = 0.144 (isotropic would be 0.00035); effective dim of within-class var = 14.5; top-10 PC var fractions = [0.223, 0.096, 0.062, 0.038, 0.031, 0.027, 0.021, 0.019, 0.017, 0.015]
+cos(delta, PC1..10) = [-0.78, -0.14, -0.14, 0.26, 0.22, -0.03, -0.07, -0.08, -0.14, 0.22]; |delta|^2 fraction in top-10 PCs = 0.84
+Gaussian prediction for random directions: z sd = 0.405 -> 2.5/97.5% AUROC = 0.214 / 0.786
+Same d' but isotropic within-class variance: z sd = 0.0199 -> 0.484 / 0.516
+Observed: AA 0.696, PC2 0.453, delta (in-sample) 0.784, random 2.5/50/97.5 = 0.319 / 0.520 / 0.710
+Per-direction Gaussian prediction vs observed random AUROC: r = 0.981; predicted 2.5/50/97.5 = 0.249 / 0.526 / 0.765
++ isotropic noise, var per coord = 0.1 x var along delta (tr(Sigma) x42, d' along delta -> 1.44): AA 0.599, PC2 0.437, delta 0.754, random 2.5/50/97.5 = 0.420 / 0.503 / 0.571
++ isotropic noise, var per coord = 1.0 x var along delta (tr(Sigma) x416, d' along delta -> 1.07): AA 0.520, PC2 0.422, delta 0.670, random 2.5/50/97.5 = 0.437 / 0.497 / 0.563
+Random directions restricted to the top-10 PC subspace: 2.5/50/97.5 = 0.265 / 0.483 / 0.732
+
+=== final region, n=824, hacks=189 ===
+|delta| = 1310.4; within-class var along delta = 327775.1; d' along delta = 2.29 (Gaussian AUROC along delta = 0.947)
+tr(Sigma) = 2504049.3; var fraction along delta = 0.131 (isotropic would be 0.00035); effective dim of within-class var = 2.6; top-10 PC var fractions = [0.616, 0.047, 0.034, 0.022, 0.02, 0.018, 0.013, 0.012, 0.009, 0.009]
+cos(delta, PC1..10) = [0.43, -0.02, 0.42, 0.31, -0.05, -0.47, 0.37, -0.01, 0.07, 0.05]; |delta|^2 fraction in top-10 PCs = 0.83
+Gaussian prediction for random directions: z sd = 0.586 -> 2.5/97.5% AUROC = 0.126 / 0.874
+Same d' but isotropic within-class variance: z sd = 0.0302 -> 0.476 / 0.524
+Observed: AA 0.714, PC2 0.376, delta (in-sample) 0.938, random 2.5/50/97.5 = 0.140 / 0.485 / 0.868
+Per-direction Gaussian prediction vs observed random AUROC: r = 0.954; predicted 2.5/50/97.5 = 0.091 / 0.497 / 0.922
++ isotropic noise, var per coord = 0.1 x var along delta (tr(Sigma) x39, d' along delta -> 2.18): AA 0.540, PC2 0.410, delta 0.914, random 2.5/50/97.5 = 0.407 / 0.503 / 0.588
++ isotropic noise, var per coord = 1.0 x var along delta (tr(Sigma) x378, d' along delta -> 1.62): AA 0.498, PC2 0.535, delta 0.876, random 2.5/50/97.5 = 0.429 / 0.500 / 0.560
+Random directions restricted to the top-10 PC subspace: 2.5/50/97.5 = 0.103 / 0.493 / 0.885

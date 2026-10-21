@@ -1,0 +1,7 @@
+include requirements-tested.txt SOURCE_MANIFEST.json NOTICE.md
+recursive-include docs *.md
+recursive-include docs/figures *.png
+recursive-include scripts *.py
+recursive-include tests *.py
+recursive-include published *.json *.md *.txt
+recursive-include slurm *.sbatch
