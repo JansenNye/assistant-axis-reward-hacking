@@ -43,7 +43,8 @@ separate recovered transcripts below also allow inspection of the supplied conte
 and selected responses, and provide the exact input bytes for repeating extraction. “Unflagged” is not a
 judge-confirmed negative label. The original coding-run importer
 (`axis_rh.correlation.rh_hillclimb`) is optional provenance tooling for the original run
-layout; it requires full run data, worklists and reasoning sidecars not included here.
+layout; its required cohort run data, worklists and reasoning sidecars are now in the
+[episode archive](EPISODES.md).
 The recovered extraction inputs bypass that importer. Public
 cache analysis does not depend on it. Its prompt helpers are tested with synthetic inputs.
 
@@ -59,7 +60,8 @@ uncompressed). Its uncompressed SHA-256 exactly matches `transcripts_sha256` in 
 six published cache manifests. No transcript bytes were changed. It includes the
 messages supplied for each selected turn, raw response with channel markers, generated
 code and recorded verdict. This is a collection of extraction inputs, not the full
-archive of every run, test environment, or judge deliberation.
+archive of every run or execution environment. A [separate episode archive](EPISODES.md)
+now includes the contributing episodes, source settings and recorded judge explanations.
 
 ```bash
 python scripts/verify_transcripts.py
@@ -75,8 +77,8 @@ checksums and joins all 824 IDs/turns/outcomes to the published observation inde
 contains the corresponding previously published scoring metadata.
 
 Readers can now inspect the text and code behind recorded verdicts. A matching verdict
-is still not independent adjudication: this release does not include every original
-judge request, hidden test, or executable environment, and unflagged observations are
+is still not independent adjudication: the episode archive adds the original recorded judge explanations and saved test
+results, but not every judge API request or a frozen executable environment, and unflagged observations are
 not judge-confirmed negatives. Repeating activation extraction additionally requires
 the pinned model and compatible hardware/software. No new GPU extraction or judging
 was performed for this recovery.

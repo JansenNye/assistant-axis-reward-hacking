@@ -1,0 +1,15 @@
+{
+  "source_verdict_files_matching_historical_checksums": 89,
+  "released_files": 1066,
+  "contributing_episodes": 686,
+  "released_judge_decisions": 217,
+  "reconstructed_transcripts": 824,
+  "reconstructed_transcripts_sha256": "f6848718b0a50f48ecc428bb538fa00ca0926c9774965b393175a34abaf41285",
+  "checks": [
+    "Full shared-source reconstruction matches original extraction input byte-for-byte",
+    "Released cohort subset reconstruction matches original extraction input byte-for-byte",
+    "Reconstruction from verified archive extraction matches original extraction input byte-for-byte",
+    "Archive verifier passes from source distribution"
+  ],
+  "limits": "Recorded judgments are preserved, not independently adjudicated. The cohort subset does not include all excluded candidates or a frozen executable environment."
+}

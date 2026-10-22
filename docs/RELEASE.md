@@ -3,8 +3,10 @@
 Includes activation extraction, random-direction controls, clustered bootstrap
 intervals, held-out and noise baselines, and a public 824-observation bundle.
 The exact 824 extraction-input transcripts are included separately and verified against
-all six cache manifests. Full episode directories and base-model weights remain
-separate; see [DATA.md](DATA.md).
+all six cache manifests. A recovered cohort archive adds 686 complete episode
+records and 217 judge decisions, and reconstructs the 824 transcripts byte-for-byte.
+Base-model weights and a frozen executable environment remain separate; see
+[DATA.md](DATA.md) and [EPISODES.md](EPISODES.md).
 The optional historical-run importer retains prompt reconstruction and strict matching,
 with its required text templates, but no generation runner or execution sandbox.
 

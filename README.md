@@ -44,8 +44,9 @@ contains all 824 observations, six activation-cache shards, and the original axi
 (about 27 MB compressed). Generated code has been removed from metadata; labels,
 matching strata, activations and lengths are unchanged. A separate 5.9 MB archive now
 contains the **824 exact extraction transcripts**, including supplied conversation context,
-raw responses and generated code. Full episode directories and base-model weights are
-not included. `published/` also retains aggregate outputs for comparison.
+raw responses and generated code. A [recovered source archive](docs/EPISODES.md) adds all 686 contributing episodes,
+reasoning sidecars, run settings and recorded judge explanations. Base-model weights
+and a frozen executable environment are not included. `published/` also retains aggregate outputs for comparison.
 See [DATA.md](docs/DATA.md) for formats and limitations.
 
 Download the fixed release into the repository root:
