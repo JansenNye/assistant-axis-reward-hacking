@@ -2,7 +2,9 @@
 
 Includes activation extraction, random-direction controls, clustered bootstrap
 intervals, held-out and noise baselines, and a public 824-observation bundle.
-Full conversations and base-model weights are not included; see [DATA.md](DATA.md).
+The exact 824 extraction-input transcripts are included separately and verified against
+all six cache manifests. Full episode directories and base-model weights remain
+separate; see [DATA.md](DATA.md).
 The optional historical-run importer retains prompt reconstruction and strict matching,
 with its required text templates, but no generation runner or execution sandbox.
 

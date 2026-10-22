@@ -5,3 +5,5 @@ recursive-include scripts *.py
 recursive-include tests *.py
 recursive-include published *.json *.md *.txt
 recursive-include slurm *.sbatch
+
+recursive-include published *.gz

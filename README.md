@@ -30,6 +30,7 @@ python -m pip install --upgrade pip
 python -m pip install -e .
 python -m unittest discover -s tests -v
 python scripts/plot_published_results.py
+python scripts/verify_transcripts.py
 ```
 
 The tests construct small local models and synthetic caches; no model download is needed.
@@ -41,8 +42,10 @@ The plotting command reads archived aggregate statistics and writes a figure to 
 The [public observation bundle](https://huggingface.co/datasets/Arkonyx/assistant-axis-reward-hacking)
 contains all 824 observations, six activation-cache shards, and the original axis tensor
 (about 27 MB compressed). Generated code has been removed from metadata; labels,
-matching strata, activations and lengths are unchanged. Full conversations and base-model
-weights are not included. `published/` retains the aggregate outputs for comparison.
+matching strata, activations and lengths are unchanged. A separate 5.9 MB archive now
+contains the **824 exact extraction transcripts**, including supplied conversation context,
+raw responses and generated code. Full episode directories and base-model weights are
+not included. `published/` also retains aggregate outputs for comparison.
 See [DATA.md](docs/DATA.md) for formats and limitations.
 
 Download the fixed release into the repository root:
@@ -96,6 +99,7 @@ The published cache uses `openai/gpt-oss-120b`, revision
 Extraction needs enough GPU memory for the model and its input sequences.
 
 ```bash
+python scripts/verify_transcripts.py --output artifacts/transcripts.jsonl
 python -m pip install -e '.[extraction]'
 python -m axis_rh.correlation.random_vectors \
   --transcripts artifacts/transcripts.jsonl \

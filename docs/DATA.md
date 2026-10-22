@@ -3,7 +3,8 @@
 The [public MIT-licensed bundle](https://huggingface.co/datasets/Arkonyx/assistant-axis-reward-hacking)
 contains 824 GPT-OSS-120B observations, six activation-cache shards and the Assistant
 Axis tensor (27 MB compressed). It retains verdicts, matching strata and token counts;
-generated code is removed. Full conversations and base-model weights are not included.
+generated code is removed from this compact bundle. Exact extraction transcripts are
+now available in a separate archive below; base-model weights remain separate.
 Koby Lewis developed the extraction/reward-hacking setup; Jansen Nye ran the controls.
 
 From the repository root:
@@ -37,13 +38,45 @@ or duplicate shards and smoke-test caches. Exact token alignment excludes contro
 and the last unprocessed response token. The transcript hash in a manifest identifies
 original extraction inputs, not the reduced metadata file.
 
-These inputs support fixed-cohort statistical reanalysis. They do not support independently
-rejudging hacking or repeating extraction without the conversations. “Unflagged” is not a
+The compact observation bundle supports fixed-cohort statistical reanalysis. The
+separate recovered transcripts below also allow inspection of the supplied context
+and selected responses, and provide the exact input bytes for repeating extraction. “Unflagged” is not a
 judge-confirmed negative label. The original coding-run importer
 (`axis_rh.correlation.rh_hillclimb`) is optional provenance tooling for the original run
-layout; it requires run data, worklists and reasoning sidecars not included here. Public
+layout; it requires full run data, worklists and reasoning sidecars not included here.
+The recovered extraction inputs bypass that importer. Public
 cache analysis does not depend on it. Its prompt helpers are tested with synthetic inputs.
 
 To rebuild reduced metadata from complete source caches, use
 `scripts/prepare_observations.py --help`. That exporter preserves scoring inputs and
 writes a checksum manifest; it performs no upload.
+
+## Recovered extraction transcripts
+
+[`published/extraction-transcripts.jsonl.gz`](../published/extraction-transcripts.jsonl.gz)
+contains the original 824-record extraction-input JSONL (5.9 MB compressed, 25 MB
+uncompressed). Its uncompressed SHA-256 exactly matches `transcripts_sha256` in all
+six published cache manifests. No transcript bytes were changed. It includes the
+messages supplied for each selected turn, raw response with channel markers, generated
+code and recorded verdict. This is a collection of extraction inputs, not the full
+archive of every run, test environment, or judge deliberation.
+
+```bash
+python scripts/verify_transcripts.py
+# After downloading the observation bundle, additionally check the six actual shards:
+python scripts/verify_transcripts.py --cache artifacts/cache
+# Write a new file for the README's GPU extraction command:
+python scripts/verify_transcripts.py --output artifacts/transcripts.jsonl
+```
+
+The output path must not already exist. The verifier checks compressed and uncompressed
+checksums and joins all 824 IDs/turns/outcomes to the published observation index.
+`published/transcript-manifest.json` pins the hashes; `transcript-observations.json`
+contains the corresponding previously published scoring metadata.
+
+Readers can now inspect the text and code behind recorded verdicts. A matching verdict
+is still not independent adjudication: this release does not include every original
+judge request, hidden test, or executable environment, and unflagged observations are
+not judge-confirmed negatives. Repeating activation extraction additionally requires
+the pinned model and compatible hardware/software. No new GPU extraction or judging
+was performed for this recovery.

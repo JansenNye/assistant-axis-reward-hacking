@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "archive": "extraction-transcripts.jsonl.gz",
+  "archive_sha256": "6229ca20bef87a7c8680da4be7a7faeefc82d4934f01821e4a68f03f03450a4e",
+  "transcripts_sha256": "f6848718b0a50f48ecc428bb538fa00ca0926c9774965b393175a34abaf41285",
+  "observations": 824,
+  "observation_index_sha256": "a0bc89bb33e8bd484cca8e279e503da63156f0a54abd62174e33498a1a7c536d",
+  "scope": "Exact extraction-input JSONL: prompts and prior messages supplied for each selected response, raw response with channel markers, generated code, and recorded outcome. Not a complete archive of every original episode, execution environment, or judge deliberation."
+}
